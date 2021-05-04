@@ -1,5 +1,6 @@
 export interface HomeProps{
- episodes: Episode[];
+ latesEpisodes: Episode[];
+ allEpisodes: Episode[];
 }
 
 export interface Episode{
@@ -10,5 +11,7 @@ export interface Episode{
       published_at: string;
       description: string;
       duration: number;
+      durationAsString: string;
       url: string;
+      publishedAt: string;
 }
