@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import React, { useEffect } from "react";
 import {format, parseISO } from 'date-fns'
-import { HomeProps } from "./types";
 import {api} from  '../services/api';
 import { ptBR } from "date-fns/locale";
 import Link from 'next/link';
@@ -9,7 +8,23 @@ import Image from 'next/image';
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
 import styles from './home.module.scss';
 
-
+interface HomeProps{
+  latesEpisodes: Episode[];
+  allEpisodes: Episode[];
+ }
+ 
+interface Episode{
+       id: string;
+       title: string;
+       members: string;
+       thumbnail: string;
+       published_at: string;
+       description: string;
+       duration: number;
+       durationAsString: string;
+       url: string;
+       publishedAt: string;
+ }
 
 
 export default function Home({ latesEpisodes, allEpisodes }: HomeProps) {

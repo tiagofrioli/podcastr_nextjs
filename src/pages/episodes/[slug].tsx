@@ -1,5 +1,4 @@
 import {useRouter} from 'next/router';
-import { EpisodeProps } from './types';
 import styles from './episode.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,6 +8,22 @@ import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 
+
+interface Episode {
+  id: string;
+  title: string;
+  thumbnail: string;
+  members: string;
+  duration: number;
+  durationAsString: string;
+  url: string;
+  publishedAt: string;
+  description: string;
+ };
+ 
+interface EpisodeProps{
+  episode: Episode;
+ };
 
 
 export default function Episode({ episode }: EpisodeProps) {
